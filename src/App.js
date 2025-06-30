@@ -1,23 +1,155 @@
-import logo from './logo.svg';
+import React from "react";
+import { Link } from "react-router-dom";
 import './App.css';
+import logo from './logo.svg';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+      <Header />
+
+      {/* Hero Section */}
+      <section className="pt-20 pb-16 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">
+                  {/* Stethoscope icon replaced with emoji for now */}
+                  🩺 AI-Powered Health Assistant
+                </span>
+                <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                  Your Personal
+                  <span className="text-blue-600 block">Symptom Checker</span>
+                </h1>
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  Get instant, reliable health insights powered by advanced AI. Understand your symptoms and make
+                  informed decisions about your health.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/symptom-checker">
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg rounded-md">
+                    Start Symptom Check →
+                  </button>
+                </Link>
+                <button className="border border-blue-200 text-blue-700 hover:bg-blue-50 px-8 py-3 rounded-md text-lg">
+                  Learn More
+                </button>
+              </div>
+
+              <div className="flex items-center gap-6 pt-4 text-gray-600">
+                <span>✅ Free to use</span>
+                <span>✅ Medically reviewed</span>
+                <span>✅ Privacy first</span>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="bg-white rounded-2xl shadow-2xl p-8 border border-blue-100 space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">❤️</div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900">Quick Assessment</h3>
+                    <p className="text-gray-600 text-sm">Get results in under 3 minutes</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span className="text-gray-700">Describe your symptoms</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span className="text-gray-700">Answer guided questions</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <span className="text-blue-700 font-medium">Get personalized insights</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto max-w-6xl px-4 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Why Choose SymptoScan?</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-16">
+            Advanced AI technology meets medical expertise to provide you with reliable health insights.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "🧠",
+                title: "AI-Powered Analysis",
+                desc: "Our advanced AI analyzes your symptoms using the latest medical knowledge.",
+              },
+              {
+                icon: "🛡️",
+                title: "Medically Reviewed",
+                desc: "Content is reviewed by licensed healthcare professionals to ensure accuracy.",
+              },
+              {
+                icon: "⏱️",
+                title: "Instant Results",
+                desc: "Get immediate insights and recommendations without waiting for appointments.",
+              },
+            ].map((feature, idx) => (
+              <div key={idx} className="border border-blue-100 rounded-lg p-8 hover:shadow-lg transition-shadow">
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-semibold text-gray-900">{feature.title}</h3>
+                <p className="text-gray-600">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-blue-600 text-white">
+        <div className="container mx-auto max-w-6xl px-4 grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div className="text-4xl font-bold">500K+</div>
+            <div className="text-blue-100">Symptoms Analyzed</div>
+          </div>
+          <div>
+            <div className="text-4xl font-bold">95%</div>
+            <div className="text-blue-100">Accuracy Rate</div>
+          </div>
+          <div>
+            <div className="text-4xl font-bold">24/7</div>
+            <div className="text-blue-100">Available</div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-50 to-indigo-50 text-center">
+        <div className="container mx-auto max-w-4xl px-4 space-y-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">Ready to Check Your Symptoms?</h2>
+          <p className="text-xl text-gray-600">
+            Take the first step towards better health with our AI-powered symptom checker.
+          </p>
+          <Link to="/symptom-checker">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-md text-lg">
+              Start Your Health Assessment →
+            </button>
+          </Link>
+          <p className="text-sm text-gray-500">
+            * This tool is for informational purposes only and should not replace professional medical advice.
+          </p>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }
