@@ -53,7 +53,6 @@ function SymptomChecker() {
           "Content-Type": "application/json",
         },
       });
-      
       const result = await response.data.result;
  
       // console.log(result);
