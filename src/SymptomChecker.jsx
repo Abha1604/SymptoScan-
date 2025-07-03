@@ -48,7 +48,7 @@ function SymptomChecker() {
 
   const getResults = async () => {
     try {
-      const response = await axios.post(`http://localhost:4000/symptom-checker`, formData, {
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/symptom-checker`, formData, {
         headers: {
           "Content-Type": "application/json",
         },
