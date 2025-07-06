@@ -4,10 +4,13 @@ import './App.css';
 import logo from './logo.svg';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { ArrowRight } from "lucide-react";
+import { useDarkMode } from "./context/DarkModeContext";
 
 function App() {
+  const { isDark } = useDarkMode();
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white dark:from-gray-900 dark:to-black text-gray-900 dark:text-gray-100 transition-colors">
       <Header />
 
       {/* Hero Section */}
@@ -20,11 +23,11 @@ function App() {
                   {/* Stethoscope icon replaced with emoji for now */}
                   🩺 AI-Powered Health Assistant
                 </span>
-                <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
                   Your Personal
                   <span className="text-blue-600 block">Symptom Checker</span>
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
                   Get instant, reliable health insights powered by advanced AI. Understand your symptoms and make
                   informed decisions about your health.
                 </p>
@@ -32,8 +35,9 @@ function App() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/symptom-checker">
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg rounded-md">
-                    Start Symptom Check →
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg rounded-md flex items-center gap-2 group transition">
+                    Start Symptom Check
+                    <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
                 </Link>
                 <button className="border border-blue-200 text-blue-700 hover:bg-blue-50 px-8 py-3 rounded-md text-lg">
@@ -49,12 +53,12 @@ function App() {
             </div>
 
             <div className="relative">
-              <div className="bg-white rounded-2xl shadow-2xl p-8 border border-blue-100 space-y-6">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 border border-blue-100 dark:border-gray-600 space-y-6">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">❤️</div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Quick Assessment</h3>
-                    <p className="text-gray-600 text-sm">Get results in under 3 minutes</p>
+                    <h3 className="font-semibold text-gray-900 dark:text-white">Quick Assessment</h3>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">Get results in under 3 minutes</p>
                   </div>
                 </div>
 
@@ -79,12 +83,18 @@ function App() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto max-w-6xl px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Why Choose SymptoScan?</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-16">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
+            Why Choose SymptoScan?
+          </h2>
+
+          {/* Add margin below heading */}
+          <p className="text-xl text-gray-600 dark:text-gray-300 mt-4 mb-12">
             Advanced AI technology meets medical expertise to provide you with reliable health insights.
           </p>
+
+          {/* Feature Cards */}
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -103,49 +113,94 @@ function App() {
                 desc: "Get immediate insights and recommendations without waiting for appointments.",
               },
             ].map((feature, idx) => (
-              <div key={idx} className="border border-blue-100 rounded-lg p-8 hover:shadow-lg transition-shadow">
+              <div
+                key={idx}
+                className="border border-blue-100 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-lg p-8 hover:shadow-lg transition-shadow"
+              >
                 <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900">{feature.title}</h3>
-                <p className="text-gray-600">{feature.desc}</p>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">{feature.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+
       {/* Stats Section */}
-      <section className="py-16 bg-blue-600 text-white">
+      <section className="py-16 bg-blue-600 dark:bg-gray-800 text-white">
         <div className="container mx-auto max-w-6xl px-4 grid md:grid-cols-3 gap-8 text-center">
           <div>
             <div className="text-4xl font-bold">500K+</div>
-            <div className="text-blue-100">Symptoms Analyzed</div>
+            <div className="text-blue-100 dark:text-gray-400">Symptoms Analyzed</div>
           </div>
           <div>
             <div className="text-4xl font-bold">95%</div>
-            <div className="text-blue-100">Accuracy Rate</div>
+            <div className="text-blue-100 dark:text-gray-400">Accuracy Rate</div>
           </div>
           <div>
             <div className="text-4xl font-bold">24/7</div>
-            <div className="text-blue-100">Available</div>
+            <div className="text-blue-100 dark:text-gray-400">Available</div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-50 to-indigo-50 text-center">
-        <div className="container mx-auto max-w-4xl px-4 space-y-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">Ready to Check Your Symptoms?</h2>
-          <p className="text-xl text-gray-600">
+      <section className="py-20 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 text-center">
+        <div className="container mx-auto max-w-4xl px-4 space-y-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
+            Ready to Check Your Symptoms?
+          </h2>
+
+          <p className="text-lg text-gray-600 dark:text-gray-300">
             Take the first step towards better health with our AI-powered symptom checker.
           </p>
-          <Link to="/symptom-checker">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-md text-lg">
-              Start Your Health Assessment →
-            </button>
-          </Link>
-          <p className="text-sm text-gray-500">
+
+          {/* Button centered */}
+          <div className="flex justify-center">
+            <Link to="/symptom-checker">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-3 rounded-md text-lg font-semibold shadow-md transition flex items-center gap-2 group">
+                Start Your Health Assessment
+                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </Link>
+          </div>
+
+          <p className="text-sm text-gray-500 pt-4">
             * This tool is for informational purposes only and should not replace professional medical advice.
           </p>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-20 bg-white dark:bg-gray-900 text-center" id="about">
+        <div className="container mx-auto max-w-5xl px-4 space-y-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">About SymptoScan</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300">
+            SymptoScan is your trusted AI-powered health companion. It helps users quickly understand their symptoms through guided, medically-reviewed assessments.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8 pt-8">
+            <div className="bg-blue-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-blue-700 dark:text-blue-400 mb-2">Built with AI</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                Our algorithms use advanced models trained on verified medical datasets.
+              </p>
+            </div>
+            <div className="bg-blue-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-blue-700 dark:text-blue-400 mb-2">Privacy-Centered</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                We don’t collect or store user data. All assessments are processed privately.
+              </p>
+            </div>
+            <div className="bg-blue-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-blue-700 dark:text-blue-400 mb-2">Instant & Accessible</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                Get reliable health suggestions in less than 3 minutes — anytime, anywhere.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

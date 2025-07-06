@@ -3,8 +3,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import axios from "axios";
 import SymptomInfo from "./Response";
+import { useDarkMode } from "./context/DarkModeContext";
 
 function SymptomChecker() {
+  const { isDark } = useDarkMode();
   const [responseData, setResponseData] = useState(null);
   const [formData, setFormData] = useState({
     age: "",
@@ -20,30 +22,30 @@ function SymptomChecker() {
   };
 
   function parseSymptomData(resultString) {
-  // Trim the unwanted extra characters (keep your logic)
-  resultString = resultString.slice(7, resultString.length - 4);
+    // Trim the unwanted extra characters (keep your logic)
+    resultString = resultString.slice(7, resultString.length - 4);
 
-  try {
-    const parsed = JSON.parse(resultString);
-    
-    return {
-      title: parsed.title || "Health Insight",
-      causes: parsed.causes || [],
-      steps: parsed.steps || [],
-      emergency: parsed.emergency || [],
-      disclaimer: parsed.disclaimer || "",
-    };
-  } catch (err) {
-    console.error("Failed to parse JSON from resultString:", err);
-    return {
-      title: "Error",
-      causes: [],
-      steps: [],
-      emergency: [],
-      disclaimer: "Unable to parse health information.",
-    };
+    try {
+      const parsed = JSON.parse(resultString);
+
+      return {
+        title: parsed.title || "Health Insight",
+        causes: parsed.causes || [],
+        steps: parsed.steps || [],
+        emergency: parsed.emergency || [],
+        disclaimer: parsed.disclaimer || "",
+      };
+    } catch (err) {
+      console.error("Failed to parse JSON from resultString:", err);
+      return {
+        title: "Error",
+        causes: [],
+        steps: [],
+        emergency: [],
+        disclaimer: "Unable to parse health information.",
+      };
+    }
   }
-}
 
 
   const getResults = async () => {
@@ -54,21 +56,21 @@ function SymptomChecker() {
         },
       });
       const result = await response.data.result;
- 
+
       // console.log(result);
       const parsed = parseSymptomData(result);
-      setResponseData(parsed); 
+      setResponseData(parsed);
     } catch (error) {
       console.error("Error fetching results:", error);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white dark:from-gray-900 dark:to-black text-gray-900 dark:text-gray-100 transition-colors">
       <Header />
       <div className="pt-20 pb-16 px-4 max-w-2xl mx-auto text-center">
-        <h1 className="text-3xl font-bold text-gray-900">Symptom Checker</h1>
-        <p className="text-lg text-gray-600 mb-6">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Symptom Checker</h1>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
           Fill in the details below to get health insights
         </p>
 
@@ -78,12 +80,12 @@ function SymptomChecker() {
             placeholder="Your Age"
             value={formData.age}
             onChange={(e) => handleInputChange("age", e.target.value)}
-            className="border p-2 rounded w-full"
+            className="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-2 rounded w-full"
           />
           <select
             value={formData.gender}
             onChange={(e) => handleInputChange("gender", e.target.value)}
-            className="border p-2 rounded w-full"
+            className="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-2 rounded w-full"
           >
             <option value="">Select Gender</option>
             <option>Male</option>
@@ -94,12 +96,12 @@ function SymptomChecker() {
             placeholder="Describe symptoms..."
             value={formData.symptoms}
             onChange={(e) => handleInputChange("symptoms", e.target.value)}
-            className="border p-3 rounded w-full h-28"
+            className="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-3 rounded w-full h-28"
           />
           <select
             value={formData.duration}
             onChange={(e) => handleInputChange("duration", e.target.value)}
-            className="border p-2 rounded w-full"
+            className="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-2 rounded w-full"
           >
             <option value="">Duration</option>
             <option>Less than a day</option>
@@ -109,7 +111,7 @@ function SymptomChecker() {
           <select
             value={formData.severity}
             onChange={(e) => handleInputChange("severity", e.target.value)}
-            className="border p-2 rounded w-full"
+            className="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-2 rounded w-full"
           >
             <option value="">Severity</option>
             <option>Mild</option>
@@ -120,12 +122,12 @@ function SymptomChecker() {
             placeholder="Additional Info"
             value={formData.additionalInfo}
             onChange={(e) => handleInputChange("additionalInfo", e.target.value)}
-            className="border p-3 rounded w-full h-20"
+            className="border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-3 rounded w-full h-20"
           />
         </div>
 
         <button
-          className="mt-6 px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
+          className="mt-6 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded transition"
           onClick={getResults}
         >
           Get Results
