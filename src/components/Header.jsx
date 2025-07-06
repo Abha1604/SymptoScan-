@@ -1,80 +1,58 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Only if you're using react-router-dom
+import React from "react";
+import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "../components/ui/sheet";
-import { Stethoscope, Menu } from "lucide-react";
+import { Stethoscope, Sun, Moon } from "lucide-react";
+import { useDarkMode } from "../context/DarkModeContext";
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isDark, setIsDark } = useDarkMode();
+
+  const toggleDarkMode = () => {
+    setIsDark(!isDark);
+  };
 
   return (
-    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-blue-100 z-50">
+    <header className="fixed top-0 w-full bg-white dark:bg-gray-900/90 backdrop-blur-sm border-b border-blue-100 dark:border-gray-700 z-50 transition">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 font-bold text-xl text-blue-600">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+          <Link to="/" className="flex items-center gap-2 font-bold text-xl text-blue-600 dark:text-blue-400">
+            <div className="w-8 h-8 bg-blue-600 dark:bg-blue-500 rounded-lg flex items-center justify-center">
               <Stethoscope className="w-5 h-5 text-white" />
             </div>
             SymptoScan
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Home
-            </Link>
-            <Link to="/symptom-checker" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Symptom Checker
-            </Link>
-            <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">
-              About
-            </a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Contact
-            </a>
-          </nav>
+          {/* Navigation + Actions */}
+          <div className="flex items-center gap-6">
+            <nav className="hidden md:flex items-center gap-8">
+              <Link to="/" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Home
+              </Link>
+              <Link to="/symptom-checker" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Symptom Checker
+              </Link>
+              <a href="#about" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                About Us
+              </a>
+            </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="outline" className="border-blue-200 text-blue-700 hover:bg-blue-50 bg-transparent">
+            <Button variant="outline" className="bg-blue-100 text-blue-700 hover:bg-blue-600 hover:text-white font-semibold shadow-sm px-4 py-2 rounded-md transition hidden md:inline-flex">
               <Link to="/symptom-checker">Start Check</Link>
             </Button>
+
+            <button
+              onClick={toggleDarkMode}
+              className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center transition"
+              title="Toggle Dark Mode"
+            >
+              {isDark ? (
+                <Sun className="w-5 h-5 text-yellow-500" />
+              ) : (
+                <Moon className="w-5 h-5 text-gray-800" />
+              )}
+            </button>
           </div>
-
-          {/* Mobile Menu */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
-                <Menu className="w-6 h-6" />
-              </Button>
-            </SheetTrigger>
-            {isOpen && (
-              <div className="fixed top-0 right-0 w-80 h-full bg-white shadow-lg z-50 p-6 overflow-y-auto">
-                <div className="flex items-center justify-between mb-8">
-                  <Link to="/" className="flex items-center gap-2 font-bold text-xl text-blue-600">
-                    <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                      <Stethoscope className="w-5 h-5 text-white" />
-                    </div>
-                    SymptoScan
-                  </Link>
-                </div>
-
-                <nav className="flex flex-col gap-6">
-                  <Link to="/" className="text-lg text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>Home</Link>
-                  <Link to="/symptom-checker" className="text-lg text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>Symptom Checker</Link>
-                  <a href="#" className="text-lg text-gray-700 hover:text-blue-600">About</a>
-                  <a href="#" className="text-lg text-gray-700 hover:text-blue-600">Contact</a>
-
-                  <div className="pt-6 border-t border-gray-200">
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                      <Link to="/symptom-checker" onClick={() => setIsOpen(false)}>Start Symptom Check</Link>
-                    </Button>
-                  </div>
-                </nav>
-              </div>
-            )}
-          </Sheet>
         </div>
       </div>
     </header>
