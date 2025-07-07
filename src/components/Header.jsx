@@ -32,8 +32,8 @@ function Header() {
               <Link to="/symptom-checker" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 Symptom Checker
               </Link>
-              <a href="#about" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                About Us
+              <a href="/nearby-hospital" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Nearby Hospitals
               </a>
             </nav>
 

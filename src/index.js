@@ -5,6 +5,7 @@ import App from './App';
 import SymptomChecker from './SymptomChecker';
 import { DarkModeProvider } from './context/DarkModeContext'; // ✅ import provider
 import './index.css';
+import NearbyHospitals from './NearbyHospitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/symptom-checker" element={<SymptomChecker />} />
+        <Route path="/nearby-hospital" element={<NearbyHospitals />} />
       </Routes>
     </BrowserRouter>
   </DarkModeProvider>
