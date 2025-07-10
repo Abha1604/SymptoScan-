@@ -37,9 +37,7 @@ function Header() {
               </a>
             </nav>
 
-            <Button variant="outline" className="bg-blue-100 text-blue-700 hover:bg-blue-600 hover:text-white font-semibold shadow-sm px-4 py-2 rounded-md transition hidden md:inline-flex">
-              <Link to="/symptom-checker">Start Check</Link>
-            </Button>
+           
 
             <button
               onClick={toggleDarkMode}
