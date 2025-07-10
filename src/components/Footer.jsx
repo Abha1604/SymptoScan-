@@ -30,12 +30,9 @@ function Footer() {
               <Link to="/symptom-checker" className="block text-gray-400 dark:text-gray-600 hover:text-white dark:hover:text-blue-600 transition-colors">
                 Symptom Checker
               </Link>
-              <a href="#" className="block text-gray-400 dark:text-gray-600 hover:text-white dark:hover:text-blue-600 transition-colors">
-                About Us
+              <a href="/nearby-hospital" className="block text-gray-400 dark:text-gray-600 hover:text-white dark:hover:text-blue-600 transition-colors">
+                NearBy Hospitals
               </a>
-              {/* <a href="#" className="block text-gray-400 hover:text-white transition-colors">
-                Contact
-              </a> */}
             </div>
           </div>
         </div>

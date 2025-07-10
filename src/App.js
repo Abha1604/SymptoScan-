@@ -40,14 +40,12 @@ function App() {
                     <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
                 </Link>
-                <button className="border border-blue-200 text-blue-700 hover:bg-blue-50 px-8 py-3 rounded-md text-lg">
-                  Learn More
-                </button>
+                
               </div>
 
               <div className="flex items-center gap-6 pt-4 text-gray-600">
                 <span>✅ Free to use</span>
-                <span>✅ Medically reviewed</span>
+                <span>✅ AI Powered</span>
                 <span>✅ Privacy first</span>
               </div>
             </div>
@@ -91,7 +89,7 @@ function App() {
 
           {/* Add margin below heading */}
           <p className="text-xl text-gray-600 dark:text-gray-300 mt-4 mb-12">
-            Advanced AI technology meets medical expertise to provide you with reliable health insights.
+            Advanced AI technology uses public health data to provide helpful health insights.
           </p>
 
           {/* Feature Cards */}
@@ -104,8 +102,8 @@ function App() {
               },
               {
                 icon: "🛡️",
-                title: "Medically Reviewed",
-                desc: "Content is reviewed by licensed healthcare professionals to ensure accuracy.",
+                title: "Educational Purpose",
+                desc: "This tool offer basic health suggestions and is not a substitute for professional medical advice.",
               },
               {
                 icon: "⏱️",
