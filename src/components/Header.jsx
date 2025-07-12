@@ -16,12 +16,15 @@ function Header() {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 font-bold text-xl text-blue-600 dark:text-blue-400">
-            <div className="w-8 h-8 bg-blue-600 dark:bg-blue-500 rounded-lg flex items-center justify-center">
-              <Stethoscope className="w-5 h-5 text-white" />
-            </div>
-            SymptoScan
+          <Link to="/" className="flex items-center gap-3">
+            <img
+              src="/TO.png"
+              alt="SymptoScan Logo"
+              className="h-10 w-auto"
+              title="SymptoScan"
+              />
           </Link>
+
 
           {/* Navigation + Actions */}
           <div className="flex items-center gap-6">
