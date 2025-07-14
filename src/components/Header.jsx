@@ -18,7 +18,7 @@ function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img
-              src="/TO.png"
+              src="/logo.png"
               alt="SymptoScan Logo"
               className="h-10 w-auto"
               title="SymptoScan"
@@ -35,14 +35,12 @@ function Header() {
               <Link to="/symptom-checker" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 Symptom Checker
               </Link>
-              <a href="#about" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                About Us
+              <a href="/nearby-hospital" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                Nearby Hospitals
               </a>
             </nav>
 
-            <Button variant="outline" className="bg-blue-100 text-blue-700 hover:bg-blue-600 hover:text-white font-semibold shadow-sm px-4 py-2 rounded-md transition hidden md:inline-flex">
-              <Link to="/symptom-checker">Start Check</Link>
-            </Button>
+           
 
             <button
               onClick={toggleDarkMode}
