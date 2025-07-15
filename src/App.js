@@ -10,7 +10,8 @@ import { useDarkMode } from "./context/DarkModeContext";
 function App() {
   const { isDark } = useDarkMode();
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white dark:from-gray-900 dark:to-black text-gray-900 dark:text-gray-100 transition-colors">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-50 dark:from-gray-900 dark:to-black text-gray-900 dark:text-gray-100 transition-colors">
+
       <Header />
 
       {/* Hero Section */}
@@ -23,9 +24,9 @@ function App() {
                   {/* Stethoscope icon replaced with emoji for now */}
                   🩺 AI-Powered Health Assistant
                 </span>
-                <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
-                  Your Personal
-                  <span className="text-blue-600 block">Symptom Checker</span>
+                <h1 className="text-4xl lg:text-6xl font-bold font-arial text-gray-900 dark:text-white leading-tight">
+                 Your Personal
+                  <span className="text-blue-800 dark:text-blue-400 block">Symptom Checker</span>
                 </h1>
                 <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
                   Get instant, reliable health insights powered by advanced AI. Understand your symptoms and make
@@ -44,9 +45,9 @@ function App() {
               </div>
 
               <div className="flex items-center gap-6 pt-4 text-gray-600">
-                <span>✅ Free to use</span>
-                <span>✅ AI Powered</span>
-                <span>✅ Privacy first</span>
+                <span>🆓 Free to use</span>
+                <span>🤖 AI Powered</span>
+                <span>🔐 Privacy first</span>
               </div>
             </div>
 
