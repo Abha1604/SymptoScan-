@@ -40,7 +40,8 @@ export default function NearbyHospitals() {
   async function getNearbyHospitals() {
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/nearby-hospital`,
+        // `http://localhost:4000/nearby-hospital`,
+        `https://sympto-scan-jc6q.vercel.app//nearby-hospital`,
         location,
       );
       console.log(res.data.hospitalData);
