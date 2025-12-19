@@ -13,7 +13,7 @@ It helps users understand possible common conditions, suggests next steps, and i
 
 ---
 
-## 🚀 Features
+## Features
 - AI-based symptom analysis using Generative AI  
 - Simple and user-friendly interface  
 - Structured and easy-to-understand responses  
@@ -22,7 +22,7 @@ It helps users understand possible common conditions, suggests next steps, and i
 
 ---
 
-## 🧠 Technologies Used
+## Technologies Used
 - **Frontend:** React.js, Tailwind CSS  
 - **AI Model:** Google Gemini Flash API  
 - **Chatbot Workflow:** Flowise  
@@ -31,7 +31,7 @@ It helps users understand possible common conditions, suggests next steps, and i
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 1. User enters age, gender, symptoms, duration, and severity  
 2. The frontend sends the input to the backend  
 3. A structured prompt is sent to the Gemini AI model  
@@ -43,20 +43,20 @@ It helps users understand possible common conditions, suggests next steps, and i
 
 ---
 
-## 🧪 Testing
+## Testing
 - Tested with 100+ realistic symptom inputs  
 - Included common, vague, and edge-case scenarios  
 - Focused on safety, clarity, and consistency  
 
 ---
 
-## 📌 Disclaimer
+##  Disclaimer
 This application is **not a medical diagnosis tool**.  
 Always consult a qualified healthcare professional for medical concerns.
 
 ---
 
-## 🔮 Future Enhancements
+## Future Enhancements
 - Voice-based symptom input  
 - Multi-language support  
 - Integration with verified medical datasets  
