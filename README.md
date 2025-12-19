@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# 🩺 SymptoScan  
+### AI-Powered Health Symptom Checker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🔗 **Live Demo:** https://sympto-scan.vercel.app/
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📌 Overview
+SymptoScan is an AI-powered web application designed to provide basic health guidance based on user-reported symptoms.  
+It helps users understand possible common conditions, suggests next steps, and indicates when to seek medical help.
 
-### `npm start`
+⚠️ This tool is intended for informational purposes only and does not provide medical diagnosis.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Features
+- AI-based symptom analysis using Generative AI  
+- Simple and user-friendly interface  
+- Structured and easy-to-understand responses  
+- Nearby hospitals feature for quick assistance  
+- Fast and lightweight performance  
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🧠 Technologies Used
+- **Frontend:** React.js, Tailwind CSS  
+- **AI Model:** Google Gemini Flash API  
+- **Chatbot Workflow:** Flowise  
+- **Backend:** API integration (Node.js / Fetch API)  
+- **Version Control:** GitHub  
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⚙️ How It Works
+1. User enters age, gender, symptoms, duration, and severity  
+2. The frontend sends the input to the backend  
+3. A structured prompt is sent to the Gemini AI model  
+4. The AI generates:
+   - Possible common conditions  
+   - Suggested next steps  
+   - When to consult a doctor  
+5. The response is displayed on the website  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🧪 Testing
+- Tested with 100+ realistic symptom inputs  
+- Included common, vague, and edge-case scenarios  
+- Focused on safety, clarity, and consistency  
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📌 Disclaimer
+This application is **not a medical diagnosis tool**.  
+Always consult a qualified healthcare professional for medical concerns.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🔮 Future Enhancements
+- Voice-based symptom input  
+- Multi-language support  
+- Integration with verified medical datasets  
+- Improved personalization and UI enhancements  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📄 License
+This project was developed for **educational and internship purposes only**.
